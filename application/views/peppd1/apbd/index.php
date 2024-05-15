@@ -83,16 +83,6 @@
                             </div>
                         </div>
                         <div class="row grafik-apbd" style="display: none; justify-content: space-between;">
-                            <div style="margin-left: 25px; margin-bottom: 15px;">
-                                <button><a class="nav-link">`19</a></button>
-                                <button disabled=""><a class="nav-link">`20</a></button>
-                                <button disabled=""><a class="nav-link">`21</a></button>
-                                <button disabled=""><a class="nav-link">`22</a></button>
-                            </div>
-                            <div style="margin-right: 25px; margin-bottom: 15px;">
-                                <button><a class="nav-link" id="sunburst-b2-tab" data-toggle="tab" href="#sunburst-b2" role="tab" aria-controls="sunburst-b2" aria-selected="false"><i class="fa fa-line-chart" aria-hidden="true"></i> Sunburst </a></button>
-                                <button><a class="nav-link" id="kolom-b2-tab" data-toggle="tab" href="#kolom-b2" role="tab" aria-controls="kolom-b2" aria-selected="false"><i class="fa fa-bar-chart" aria-hidden="true"></i> Kolom </a></button>
-                            </div>
                             <div class="tab-content" style="width: 100%;">
                                 <div class="tab-pane show active" id="sunburst-b2" role="tabpanel" aria-labelledby="sunburst-b2-tab" style="width: 100%;">
                                     <div class="col-12" id="isi-grafik-apbd" style="display: contents;">

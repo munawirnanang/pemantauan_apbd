@@ -214,9 +214,9 @@ class Apbd_2 extends CI_Controller
 
                 if (($selected_item) && ($selected_year)) {
 
-                    $data_all_all_nilai_apbd = array();
+                    $json_data_grafik_apbd_level_0 = array();
 
-                    $data_all_all_nilai_apbd_2 = array();
+                    $data_all_all_nilai_apbd = array();
 
                     $list_selected_item = array();
 
@@ -258,64 +258,78 @@ class Apbd_2 extends CI_Controller
                     }
 
                     // =========================================================================================================
-                    for ($a = 0; $a < count($selected_item); $a++) {
+                    for ($a = 0; $a < count($selected_daerah); $a++) {
 
-                        $item = $this->db->query("SELECT * FROM (SELECT su.nama AS nama, su.kode AS kode FROM `standarutama_apbd` su UNION SELECT sk.nama AS nama, sk.kode AS kode FROM standarkelompok_apbd sk UNION SELECT sj.nama AS nama, sj.kode AS kode FROM standarjenis_apbd sj) a WHERE a.kode = '" . $selected_item[$a] . "'")->result();
 
-                        $item_apbd_2['kode'] = $item[0]->kode;
-                        $item_apbd_2['nama'] = $item[0]->nama;
+                        $json_data_grafik_apbd_level_1 = array();
 
-                        $wilayah_all_nilai_apbd_2 = array();
+                        for ($b = 0; $b < count($selected_year); $b++) {
 
-                        for ($b = 0; $b < count($selected_daerah); $b++) {
-                            $daerah = $this->db->query("SELECT id, nama_provinsi AS nama FROM `provinsi` WHERE nama_provinsi = '" . $selected_daerah[$b] . "' UNION SELECT id, nama_kabupaten AS nama FROM kabupaten WHERE nama_kabupaten = '" . $selected_daerah[$b] . "' ORDER BY id ASC")->result();
+                            $json_data_grafik_apbd_level_2 = array();
 
-                            $value_all_nilai_apbd_2 = array();
 
-                            for ($c = 0; $c < count($selected_year); $c++) {
-                                // $nilai_apbd = $this->db->query("SELECT na.wilayah, wil.nama_daerah AS nama_daerah, na.tahun, SUM(nilai) AS jumlah 
-                                //                                 FROM nilaianggaran_apbd na 
-                                //                                 JOIN standarjenis_apbd sj ON na.standarjenis_APBD_id = sj.kode 
-                                //                                 LEFT JOIN standarkelompok_apbd sk ON sj.standarkelompok_APBD_id = sk.kode 
-                                //                                 LEFT JOIN standarutama_apbd su ON sk.standarutama_APBD_id = su.kode 
-                                //                                 LEFT JOIN (SELECT prov.id AS id, prov.nama_provinsi AS nama_daerah FROM provinsi prov UNION SELECT kabkot.id AS id, kabkot.nama_kabupaten AS nama_daerah FROM kabupaten kabkot) wil ON na.wilayah = wil.id 
-                                //                                 WHERE standarjenis_APBD_id LIKE '" . $selected_item[$a] . "%' 
-                                //                                 AND wilayah='" . $daerah[0]->id . "' 
-                                //                                 AND tahun = '" . $selected_year[$c] . "'
-                                //                                 AND versi IN (SELECT MAX(versi) AS versi FROM nilaianggaran_apbd WHERE standarjenis_APBD_id LIKE '" . $selected_item[$a] . "%' AND wilayah='" . $daerah[0]->id . "' AND tahun = '" . $selected_year[$c] . "' GROUP BY standarjenis_APBD_id ORDER BY standarjenis_APBD_id ASC) 
-                                //                                 ORDER BY standarjenis_APBD_id ASC")->result();
+                            for ($c = 0; $c < count($selected_item); $c++) {
 
-                                $nilai_apbd = $this->db->query("SELECT na.wilayah, wil.nama_daerah AS nama_daerah, na.tahun, sk.standarutama_APBD_id, sj.standarkelompok_APBD_id, sj.kode, sj.nama ,SUM(nilai) AS jumlah 
-                                                                FROM nilaianggaran_apbd na 
-                                                                JOIN standarjenis_apbd sj ON na.standarjenis_APBD_id = sj.kode 
-                                                                LEFT JOIN standarkelompok_apbd sk ON sj.standarkelompok_APBD_id = sk.kode 
-                                                                LEFT JOIN standarutama_apbd su ON sk.standarutama_APBD_id = su.kode 
-                                                                LEFT JOIN (SELECT prov.id AS id, prov.nama_provinsi AS nama_daerah FROM provinsi prov UNION SELECT kabkot.id AS id, kabkot.nama_kabupaten AS nama_daerah FROM kabupaten kabkot) wil ON na.wilayah = wil.id 
-                                                                WHERE standarjenis_APBD_id LIKE '" . $selected_item[$a] . "%'
-                                                                AND wilayah='" . $daerah[0]->id . "' 
-                                                                AND tahun = '" . $selected_year[$c] . "'
-                                                                AND versi IN (SELECT MAX(versi) AS versi FROM nilaianggaran_apbd WHERE standarjenis_APBD_id LIKE '" . $selected_item[$a] . "%' AND wilayah='" . $daerah[0]->id . "' AND tahun = '" . $selected_year[$c] . "' GROUP BY standarjenis_APBD_id ORDER BY standarjenis_APBD_id ASC) 
-                                                                ORDER BY standarjenis_APBD_id ASC")->result();
+                                $json_data_grafik_apbd = array();
 
-                                // $all_nilai_apbd_2['tahun'] = $nilai_apbd[0]->tahun;
-                                // $all_nilai_apbd_2['jumlah'] = $nilai_apbd[0]->jumlah;
-                                $all_nilai_apbd_2['id'] = $nilai_apbd[0]->kode;
-                                $all_nilai_apbd_2['parent'] = $nilai_apbd[0]->standarkelompok_APBD_id;
-                                $all_nilai_apbd_2['name'] = $nilai_apbd[0]->nama;
-                                $all_nilai_apbd_2['value'] = $nilai_apbd[0]->jumlah;
+                                if (strlen($selected_item[$c]) == '1') {
+                                    $item = $this->db->query("SELECT * FROM `standarutama_apbd` WHERE kode = '" . $selected_item[$c] . "'")->result();
 
-                                array_push($value_all_nilai_apbd_2, $all_nilai_apbd_2);
+                                    $json_data_grafik_apbd['id'] = $item[0]->kode;
+                                    $json_data_grafik_apbd['parent'] = '';
+                                    $json_data_grafik_apbd['name'] = $item[0]->nama;
+                                } elseif (strlen($selected_item[$c]) == '2') {
+                                    $item = $this->db->query("SELECT * FROM `standarkelompok_apbd` WHERE kode = '" . $selected_item[$c] . "'")->result();
+
+                                    $json_data_grafik_apbd['id'] = $item[0]->kode;
+                                    $json_data_grafik_apbd['parent'] = $item[0]->standarutama_APBD_id;
+                                    $json_data_grafik_apbd['name'] = $item[0]->nama;
+                                } elseif (strlen($selected_item[$c]) == '4') {
+                                    $wilayah = $this->db->query("SELECT id, nama_provinsi AS nama_daerah FROM `provinsi` WHERE nama_provinsi = '" . $selected_daerah[$a] . "' UNION SELECT id, nama_kabupaten AS nama_daerah FROM `kabupaten` WHERE nama_kabupaten = '" . $selected_daerah[$a] . "'")->result();
+
+
+                                    $item = $this->db->query("SELECT na.wilayah AS wilayah, wil.nama_daerah AS nama_daerah, na.tahun AS tahun, sk.standarutama_APBD_id AS standarutama_APBD_id, sj.standarkelompok_APBD_id AS standarkelompok_APBD_id, sj.kode AS kode, sj.nama AS nama, na.nilai AS nilai 
+                                                            FROM nilaianggaran_apbd na 
+                                                            JOIN standarjenis_apbd sj ON na.standarjenis_APBD_id = sj.kode 
+                                                            LEFT JOIN standarkelompok_apbd sk ON sj.standarkelompok_APBD_id = sk.kode 
+                                                            LEFT JOIN standarutama_apbd su ON sk.standarutama_APBD_id = su.kode 
+                                                            LEFT JOIN (SELECT prov.id AS id, prov.nama_provinsi AS nama_daerah FROM provinsi prov UNION SELECT kabkot.id AS id, kabkot.nama_kabupaten AS nama_daerah FROM kabupaten kabkot) wil ON na.wilayah = wil.id 
+                                                            WHERE standarjenis_APBD_id= '" . $selected_item[$c] . "'
+                                                            AND wilayah='" . $wilayah[0]->id . "' 
+                                                            AND tahun = '" . $selected_year[$b] . "'
+                                                            AND versi IN (SELECT MAX(versi) AS versi FROM nilaianggaran_apbd WHERE standarjenis_APBD_id= '" . $selected_item[$c] . "' AND wilayah='" . $wilayah[0]->id . "' AND tahun = '" . $selected_year[$b] . "' GROUP BY standarjenis_APBD_id ORDER BY standarjenis_APBD_id ASC) 
+                                                            ORDER BY standarjenis_APBD_id ASC")->result();
+
+                                    if (!empty($item)) {
+                                        $json_data_grafik_apbd['id'] = $item[0]->kode;
+                                        $json_data_grafik_apbd['parent'] = $item[0]->standarkelompok_APBD_id;
+                                        $json_data_grafik_apbd['name'] = $item[0]->nama;
+                                        $json_data_grafik_apbd['value'] = (float)$item[0]->nilai;
+                                    } else {
+                                        // Handle the case where no data is found
+                                        $json_data_grafik_apbd['id'] = null;
+                                        $json_data_grafik_apbd['parent'] = null;
+                                        $json_data_grafik_apbd['name'] = 'Data not found';
+                                        $json_data_grafik_apbd['value'] = 0;
+                                    }
+                                } else {
+                                    $json_data_grafik_apbd['id'] = null;
+                                    $json_data_grafik_apbd['parent'] = null;
+                                    $json_data_grafik_apbd['name'] = null;
+                                }
+                                array_push($json_data_grafik_apbd_level_2, $json_data_grafik_apbd);
                             }
 
-                            $all_wilayah_apbd_2['tahun'] = $selected_year[$c];
-                            $all_wilayah_apbd_2['data_level_2'] = $value_all_nilai_apbd_2;
+                            $tahun_apbd['tahun'] = $selected_year[$b];
+                            $tahun_apbd['data_level_2'] = $json_data_grafik_apbd_level_2;
 
-                            array_push($wilayah_all_nilai_apbd_2, $all_wilayah_apbd_2);
+                            array_push($json_data_grafik_apbd_level_1, $tahun_apbd);
                         }
 
-                        $item_apbd_2['data'] = $wilayah_all_nilai_apbd_2;
+                        $daerah_apbd['daerah'] = $selected_daerah[$a];
+                        $daerah_apbd['data_level_1'] = $json_data_grafik_apbd_level_1;
 
-                        array_push($data_all_all_nilai_apbd_2, $item_apbd_2);
+                        array_push($json_data_grafik_apbd_level_0, $daerah_apbd);
                     }
                     // =========================================================================================================
 
@@ -329,7 +343,7 @@ class Apbd_2 extends CI_Controller
                     "selected_daerah"   => $selected_daerah,
                     "selected_item"     => $selected_item,
                     "selected_year"     => $selected_year,
-                    "data"              => $data_all_all_nilai_apbd_2,
+                    "data"              => $json_data_grafik_apbd_level_0,
                 );
 
                 //encode data $json_data
