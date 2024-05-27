@@ -1,0 +1,9 @@
+.btnMenuGis {
+    background-color: #f2e8cf; 
+    color: black !important;
+}
+
+.btnMenuGis:hover {
+    background-color: #fdacd5;
+    color: white !important;
+}

@@ -1,0 +1,373 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 26, 2017, 11:06:59 AM
+    Author     : Your
+*/
+
+
+
+/*
+PRE LOADER
+*/
+.se-pre-con {
+    background: url("../images/Preloader_8.gif") no-repeat scroll center center rgba(255, 255, 255, 1);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1059;
+}
+
+/*
+LOADING ANIMATION
+*/
+
+.spinner:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+}
+.spinner {
+  margin: auto;display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+  position: fixed;
+  z-index: 99999;
+}
+
+.spinner > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.general_title{
+    padding: 20px 0px 0px 20px;
+}
+.general_title > span{
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: .02em;font-weight: 400;
+    font-family: Roboto,sans-serif;
+}
+
+table.table-modified td,table.table-modified th{
+    font-size: smaller;
+}
+.td_wrapper_center{
+    width:100%;
+}
+.border_bottom_dotted{
+    border-bottom: 1px dotted;
+}
+.no-margin{margin: 0px}
+.no-padding{padding: 0px !important}
+
+.bold{font-weight: bold !important}
+
+.profile-name{
+    font-size: 22px;font-weight: bold;color: #fff;
+    text-shadow: 3px 1px 3px #000;
+    padding-top: 10px
+}
+.btn_view{border-bottom: dotted 1px;}
+
+address.address_editable:hover{border: 1px dotted gray;cursor: pointer;}
+
+/*.calendar-text { margin-top: .01em; }*/
+.font_bunder{background-color: #444;border-radius: 50%}
+
+.btn-editable,.btn-editable:hover,.btn-editable:focus,.btn-editable:active,
+.btn-editable.active, .btn-editable.focus, .btn-editable:active, .btn-editable:focus, .btn-editable:hover, .open>.dropdown-toggle.btn-editable{
+  background-color: #EAD3A8;
+  border: 1px dotted #EAD3A8;
+  color: #333 !important;
+}
+
+.btn-kategoriA,.btn-kategoriA:hover,.btn-kategoriA:focus,.btn-kategoriA:active,
+.btn-kategoriA.active, .btn-kategoriA.focus, .btn-kategoriA:active, .btn-kategoriA:focus, .btn-kategoriA:hover, .open>.dropdown-toggle.btn-kategoriA{
+  background-color: #FFF;
+  border: 0px solid #444;
+  color: #444 !important;
+  border-radius: 10%;font-weight: bold;
+  box-shadow: 1px 1px 5px #888888;text-decoration: none !important;
+}
+
+.btn-kategoriB,.btn-kategoriB:hover,.btn-kategoriB:focus,.btn-kategoriB:active,
+.btn-kategoriB.active, .btn-kategoriB.focus, .btn-kategoriB:active, .btn-kategoriB:focus, .btn-kategoriB:hover, .open>.dropdown-toggle.btn-kategoriB{
+  background-color: #D23641;
+  border: 0px solid #333;
+  color: #fff !important;border-radius: 10%;font-weight: bold;
+  box-shadow: 1px 1px 5px #888888;text-decoration: none !important;
+}
+
+.btn-kategoriC,.btn-kategoriC:hover,.btn-kategoriC:focus,.btn-kategoriC:active,
+.btn-kategoriC.active, .btn-kategoriC.focus, .btn-kategoriC:active, .btn-kategoriC:focus, .btn-kategoriC:hover, .open>.dropdown-toggle.btn-kategoriC{
+  background-color: #FFCC00;
+  border: 0px solid #333;
+  color: #333 !important;border-radius: 10%;font-weight: bold;
+  box-shadow: 1px 1px 5px #888888;text-decoration: none !important;
+}
+
+.btn-kategoriD,.btn-kategoriD:hover,.btn-kategoriD:focus,.btn-kategoriD:active,
+.btn-kategoriD.active, .btn-kategoriD.focus, .btn-kategoriD:active, .btn-kategoriD:focus, .btn-kategoriD:hover, .open>.dropdown-toggle.btn-kategoriD{
+  background-color: #33b86c;
+  border: 0px solid #333;
+  color: #fff !important;border-radius: 10%;font-weight: bold;
+  box-shadow: 1px 1px 5px #888888;text-decoration: none !important;
+}
+
+.btn-kategoriE,.btn-kategoriE:hover,.btn-kategoriE:focus,.btn-kategoriE:active,
+.btn-kategoriE.active, .btn-kategoriE.focus, .btn-kategoriE:active, .btn-kategoriE:focus, .btn-kategoriE:hover, .open>.dropdown-toggle.btn-kategoriE{
+  background-color: #1e88e5;
+  border: 0px solid #333;
+  color: #fff !important;border-radius: 10%;font-weight: bold;
+  box-shadow: 1px 1px 5px #888888;text-decoration: none !important;
+}
+.text-vertical-center{vertical-align: middle !important;}
+.btn_edit{text-decoration: underline}
+
+.alo_editable{cursor: pointer}
+
+.numberCircle {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+    background: #1565c0;
+    border: 2px solid #1565c0;
+    color: #fff;
+    text-align: center;
+    /*font: 32px Arial, sans-serif;*/
+    display: inline-block;
+    font-weight: bold;
+}
+.numberCircle span{
+    margin: 1px auto;
+}
+.triw_odd{
+    background: #eeeeff !important;
+}
+
+/*warna notifikasi*/
+.circle_warna{
+    height: 15px;width:15px;
+    border-radius: 50%;
+    margin: 3px auto;
+    
+}
+.circlekateA{background-color: #FFF;border:1px solid #333;}
+.circlekateB{background-color: #D23641;border:1px solid #333;}
+.circlekateC{background-color: #FFCC00;border:1px solid #333;}
+.circlekateD{background-color: #33b86c;border:1px solid #333;}
+.circlekateE{background-color: #1e88e5;border:1px solid #333;}
+
+
+.text-black{color:#000}
+.not-bold{font-weight: normal !important;}
+
+
+.btn_view_target{color:#333;border-bottom: 1px dotted #333 !important;}
+.btn_edit_validasi{color:#333;border-bottom: 1px dotted #333 !important;}
+.blue{color:#337ab7 !important}
+.no-border-right{border-right-style: none !important;}
+.left_padding{padding-left: 30px !important;}
+
+
+td.details-control {
+    background: url('../images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.details td.details-control {
+    background: url('../images/details_close.png') no-repeat center center;
+}
+table.table_detail {margin-left: 15px}
+table.table_detail tr td{
+    padding: 5px;
+    border-bottom: 1px solid #ddd !important;text-transform: capitalize !important;
+    font-size: smaller;
+}
+table.table_detail tr td{
+    padding: 5px;
+    border-bottom: 1px solid #ddd !important;
+}
+table.table_detail tr.last_child td{
+    border-bottom: 0px solid #ddd !important;
+}
+
+table.table-description td{
+    padding: 5px;
+}
+.child_lvl1{padding-left:20px !important}
+.child_lvl2{padding-left:35px !important}
+.child_lvl3{padding-left:50px !important}
+
+.input-group > .input-group-btn:last-child > .selectpicker {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.input-group > .input-group-btn:first-child > .selectpicker {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.my-group .input_right_wrapper{
+    float: right;
+    margin-left: 5px;
+}
+.my-group .input_left_wrapper{
+    float: left;
+}
+.error-modified{color: #a94442 !important;font-style: italic}
+
+
+table.table-description tbody{color : #333}
+
+
+td.all_bordered,th.all_bordered{
+    border:1px solid #ddd !important;
+}
+
+
+
+
+
+.table-scroll {
+	position:relative;
+	max-width:100%;
+        max-height: 300px;
+	margin:auto;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	border:0px solid #000;
+}
+.table-wrap {
+	width:100%;
+	overflow:auto;
+}
+.table-scroll table {
+	width:100%;
+	margin:auto;
+	border-collapse:separate;
+	border-spacing:0;
+}
+.table-scroll th, .table-scroll td {
+	padding:5px 10px;
+	border:1px solid #dddddd;
+	background:#fff;
+	white-space:nowrap;
+	vertical-align:top;
+}
+.table-scroll thead, .table-scroll tfoot {
+	background:#f9f9f9;
+}
+.clone {
+	position:absolute;
+	top:0;
+	left:0;
+	pointer-events:none;
+}
+.clone th, .clone td {
+	visibility:hidden
+}
+.clone td, .clone th {
+	border-color:transparent
+}
+.clone tbody th {
+	visibility:visible;
+	/*color:red;*/
+}
+.clone .fixed-side {
+	border:1px solid #dddddd !important;
+        border-bottom-width: 2px;
+	background:#fff;
+	visibility:visible;
+}
+.clone thead, .clone tfoot{background:transparent;}
+
+.scrolledTable{ overflow-y: auto; clear:both; }
+
+/* Ensure that the demo table scrolls */
+    th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        /*width: 800px;*/
+        margin: 0 auto;
+    }
+
+.node {
+    cursor: pointer;
+  }
+
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+  }
+
+  .node text {
+    font: 12px sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+  }

@@ -1,0 +1,19 @@
+wilayah,tahun,periode,id_periode,nilai_struktur,nasional,nilai_pertumbuhan,target_makro_rpjmn ,target_rkpd,target_kewilayahan_rkp,versi,satuan,sumber,id_indikator,nama_indikator
+1000,2020,01,202001,12.84,,0.02,,,,2022-03-01,%,Badan Pusat Statistik,64,"Pertanian, Kehutanan, dan Perikanan"
+1000,2020,01,202001,6.82,,0.43,,,,2022-03-01,%,Badan Pusat Statistik,65,Pertambangan dan Penggalian
+1000,2020,01,202001,19.98,,2.06,,,,2022-03-01,%,Badan Pusat Statistik,66,Industri Pengolahan
+1000,2020,01,202001,1.17,,3.85,,,,2022-03-01,%,Badan Pusat Statistik,67,Pengadaan Listrik dan Gas
+1000,2020,01,202001,0.07,,4.56,,,,2022-03-01,%,Badan Pusat Statistik,68,"Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang"
+1000,2020,01,202001,10.7,,2.9,,,,2022-03-01,%,Badan Pusat Statistik,69,Konstruksi
+1000,2020,01,202001,13.2,,1.6,,,,2022-03-01,%,Badan Pusat Statistik,70,Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor
+1000,2020,01,202001,5.17,,1.27,,,,2022-03-01,%,Badan Pusat Statistik,71,Transportasi dan Pergudangan
+1000,2020,01,202001,2.8,,1.95,,,,2022-03-01,%,Badan Pusat Statistik,72,Penyediaan Akomodasi dan Makan Minum
+1000,2020,01,202001,4.25,,9.81,,,,2022-03-01,%,Badan Pusat Statistik,73,Informasi dan Komunikasi
+1000,2020,01,202001,4.7,,10.67,,,,2022-03-01,%,Badan Pusat Statistik,74,Jasa Keuangan dan Asuransi
+1000,2020,01,202001,2.88,,3.83,,,,2022-03-01,%,Badan Pusat Statistik,75,Real Estat
+1000,2020,01,202001,2,,5.39,,,,2022-03-01,%,Badan Pusat Statistik,76,Jasa Perusahaan
+1000,2020,01,202001,3.61,,3.16,,,,2022-03-01,%,Badan Pusat Statistik,77,"Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib"
+1000,2020,01,202001,3.31,,5.89,,,,2022-03-01,%,Badan Pusat Statistik,78,Jasa Pendidikan
+1000,2020,01,202001,1.2,,10.39,,,,2022-03-01,%,Badan Pusat Statistik,79,Jasa Kesehatan dan Kegiatan Sosial
+1000,2020,01,202001,2.05,,7.09,,,,2022-03-01,%,Badan Pusat Statistik,80,Jasa Lainnya
+1000,2020,01,202001,0,,0,,,,2022-03-01,%,Badan Pusat Statistik,81,Produk Domestik Regional Bruto dengan migas
